@@ -3,161 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>NEXORA | Personal Business & Freelance</title>
+<title>NEXORA | Oliver Knox</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial,sans-serif;
-    background:#f5f7fb;
-    color:#172033;
-    line-height:1.6;
-}
-
-header{
-    position:sticky;
-    top:0;
-    z-index:100;
-    background:#111827;
-    padding:18px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    color:white;
-    font-size:25px;
-    font-weight:bold;
-    letter-spacing:2px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:18px;
-    font-size:14px;
-}
-
-.hero{
-    min-height:90vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:70px 7%;
-    background:linear-gradient(135deg,#eef2ff,#ffffff);
-}
-
-.hero h1{
-    font-size:50px;
-    margin-bottom:12px;
-}
-
-.hero h1 span{
-    color:#4f46e5;
-}
-
-.hero h2{
-    font-size:25px;
-    margin-bottom:15px;
-}
-
-.hero p{
-    max-width:650px;
-    margin:auto;
-    color:#5d6678;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:25px;
-    padding:13px 25px;
-    background:#4f46e5;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-}
-
-.section{
-    padding:70px 7%;
-    text-align:center;
-}
-
-.section h2{
-    font-size:34px;
-    margin-bottom:35px;
-}
-
-.cards{
-    display:flex;
-    justify-content:center;
-    gap:22px;
-    flex-wrap:wrap;
-}
-
-.card{
-    background:white;
-    width:280px;
-    padding:30px 22px;
-    border-radius:14px;
-    box-shadow:0 4px 18px #dfe3eb;
-}
-
-.card h3{
-    margin-bottom:12px;
-}
-
-.card p{
-    color:#667085;
-}
-
-.portfolio{
-    background:#eef2ff;
-}
-
-.contact{
-    background:#111827;
-    color:white;
-}
-
-.contact p{
-    margin:8px 0;
-}
-
-footer{
-    background:#080b12;
-    color:#aaa;
-    text-align:center;
-    padding:20px;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#f5f7fb;color:#172033;line-height:1.6}
+header{position:sticky;top:0;z-index:100;background:#111827;padding:18px 7%;display:flex;justify-content:space-between;align-items:center}
+.logo{color:white;font-size:25px;font-weight:bold;letter-spacing:2px}
+nav a{color:white;text-decoration:none;margin-left:16px;font-size:14px}
+.hero{min-height:88vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:70px 7%;background:linear-gradient(135deg,#eef2ff,#fff)}
+.hero h1{font-size:48px;margin-bottom:12px}
+.hero h1 span{color:#4f46e5}
+.hero h2{font-size:24px;margin-bottom:15px}
+.hero p{max-width:650px;margin:auto;color:#5d6678}
+.btn{display:inline-block;margin-top:25px;padding:13px 25px;background:#4f46e5;color:white;text-decoration:none;border-radius:8px;font-weight:bold}
+.section{padding:70px 7%;text-align:center}
+.section h2{font-size:34px;margin-bottom:35px}
+.cards{display:flex;justify-content:center;gap:22px;flex-wrap:wrap}
+.card{background:white;width:280px;padding:30px 22px;border-radius:14px;box-shadow:0 4px 18px #dfe3eb}
+.card h3{margin-bottom:12px}
+.card p{color:#667085}
+.portfolio{background:#eef2ff}
+.contact{background:#111827;color:white}
+.contact p{margin:8px 0}
+footer{background:#080b12;color:#aaa;text-align:center;padding:20px}
 @media(max-width:700px){
-    header{
-        flex-direction:column;
-        gap:12px;
-    }
-
-    nav a{
-        margin:0 5px;
-        font-size:12px;
-    }
-
-    .hero h1{
-        font-size:38px;
-    }
-
-    .hero h2{
-        font-size:21px;
-    }
+header{flex-direction:column;gap:12px}
+nav a{margin:0 4px;font-size:12px}
+.hero h1{font-size:38px}
+.hero h2{font-size:21px}
 }
 </style>
 </head>
@@ -165,154 +39,109 @@ footer{
 <body>
 
 <header>
-    <div class="logo">NEXORA</div>
-
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#products">Products</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<div class="logo">NEXORA</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#products">Products</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
 <section class="hero" id="home">
-
-    <div>
-        <h1>Hi, I'm <span>Your Name</span></h1>
-
-        <h2>Freelancer & Digital Entrepreneur</h2>
-
-        <p>
-            Welcome to NEXORA — my personal digital space
-            for freelance services, creative projects,
-            business ideas and future online products.
-        </p>
-
-        <a href="#services" class="btn">Explore My Services</a>
-    </div>
-
+<div>
+<h1>Hi, I'm <span>Oliver Knox</span></h1>
+<h2>Founder & Digital Entrepreneur</h2>
+<p>
+Welcome to NEXORA — my personal digital brand for
+freelancing, creative projects, digital services and
+future online products.
+</p>
+<a href="#services" class="btn">Explore My Services</a>
+</div>
 </section>
 
 <section class="section" id="services">
+<h2>My Services</h2>
+<div class="cards">
 
-    <h2>My Services</h2>
+<div class="card">
+<h3>🌐 Website Services</h3>
+<p>Simple and modern websites for individuals and small businesses.</p>
+</div>
 
-    <div class="cards">
+<div class="card">
+<h3>🎨 Creative Services</h3>
+<p>Creative digital content and solutions for online businesses and creators.</p>
+</div>
 
-        <div class="card">
-            <h3>🌐 Website Services</h3>
-            <p>
-                Simple and modern websites for individuals
-                and small businesses.
-            </p>
-        </div>
+<div class="card">
+<h3>💻 Digital Services</h3>
+<p>Practical digital solutions for building a strong online presence.</p>
+</div>
 
-        <div class="card">
-            <h3>🎨 Creative Services</h3>
-            <p>
-                Digital content and creative work for
-                online businesses and creators.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>💻 Digital Services</h3>
-            <p>
-                Practical digital solutions for building
-                an online presence.
-            </p>
-        </div>
-
-    </div>
-
+</div>
 </section>
 
 <section class="section portfolio" id="portfolio">
+<h2>My Portfolio</h2>
+<div class="cards">
 
-    <h2>My Portfolio</h2>
+<div class="card">
+<h3>Project 01</h3>
+<p>Your first completed project will appear here.</p>
+</div>
 
-    <div class="cards">
+<div class="card">
+<h3>Project 02</h3>
+<p>Showcase your best freelance work here.</p>
+</div>
 
-        <div class="card">
-            <h3>Project 01</h3>
-            <p>
-                Your first completed project will appear here.
-            </p>
-        </div>
+<div class="card">
+<h3>Project 03</h3>
+<p>Add another project or business website here.</p>
+</div>
 
-        <div class="card">
-            <h3>Project 02</h3>
-            <p>
-                Add your best freelance work here.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Project 03</h3>
-            <p>
-                Showcase another project or business website.
-            </p>
-        </div>
-
-    </div>
-
+</div>
 </section>
 
 <section class="section" id="products">
+<h2>NEXORA Products</h2>
+<div class="cards">
 
-    <h2>My Products</h2>
+<div class="card">
+<h3>Coming Soon</h3>
+<p>Digital and physical products will be available here.</p>
+</div>
 
-    <div class="cards">
+<div class="card">
+<h3>Future Collection</h3>
+<p>Discover upcoming NEXORA products and offers.</p>
+</div>
 
-        <div class="card">
-            <h3>Coming Soon</h3>
-            <p>
-                Digital and physical products can be added here
-                in the future.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>New Collection</h3>
-            <p>
-                Future NEXORA products and offers will appear here.
-            </p>
-        </div>
-
-    </div>
-
+</div>
 </section>
 
 <section class="section" id="about">
-
-    <h2>About NEXORA</h2>
-
-    <p>
-        NEXORA is my personal digital brand focused on
-        freelancing, online business, creative projects
-        and building useful digital products.
-    </p>
-
+<h2>About Oliver Knox</h2>
+<p>
+I'm Oliver Knox, the founder of NEXORA.
+This website is my personal space for freelancing,
+digital projects, online business and future ventures.
+</p>
 </section>
 
 <section class="section contact" id="contact">
-
-    <h2>Let's Work Together</h2>
-
-    <p>Email: your@email.com</p>
-
-    <p>Instagram: @yourusername</p>
-
-    <a href="mailto:your@email.com" class="btn">
-        Contact Me
-    </a>
-
+<h2>Let's Work Together</h2>
+<p>Email: your@email.com</p>
+<p>Instagram: @yourusername</p>
+<a href="mailto:your@email.com" class="btn">Contact Me</a>
 </section>
 
 <footer>
-    © 2026 NEXORA. Built for the future.
+© 2026 NEXORA — Founded by Oliver Knox
 </footer>
 
 </body>
