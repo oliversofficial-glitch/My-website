@@ -6,10 +6,12 @@
 
 <title>NEXORA | Build. Create. Evolve.</title>
 
-<meta name="description" content="NEXORA is a digital-first company focused on technology, digital services, creative projects, online business and future e-commerce.">
+<meta name="description" content="NEXORA is a digital-first company building modern websites, digital solutions, creative projects, online businesses and future-ready products.">
+<meta name="keywords" content="NEXORA, digital company, website development, digital solutions, online business, creative projects, technology">
+<meta name="author" content="NEXORA">
+<meta name="theme-color" content="#070b14">
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -18,131 +20,292 @@
 }
 
 :root{
-    --bg:#070b14;
-    --bg2:#0d1424;
-    --card:#101a2d;
-    --text:#f5f7ff;
-    --muted:#9aa7bd;
+    --bg:#050811;
+    --bg2:#080e1b;
+    --card:#0d1628;
+    --text:#f7f9ff;
+    --muted:#9aa8c0;
     --blue:#4f7cff;
-    --blue2:#6ea8ff;
-    --border:rgba(255,255,255,0.08);
+    --blue2:#72a7ff;
+    --cyan:#55d6ff;
+    --border:rgba(255,255,255,.09);
+    --shadow:0 20px 60px rgba(0,0,0,.35);
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Inter,Arial,Helvetica,sans-serif;
     background:var(--bg);
     color:var(--text);
     line-height:1.6;
+    overflow-x:hidden;
 }
 
 a{
     text-decoration:none;
+    color:inherit;
 }
 
+button{
+    font-family:inherit;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#050811;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#263b70;
+    border-radius:20px;
+}
+
+/* HEADER */
+
 header{
-    position:sticky;
+    position:fixed;
     top:0;
-    z-index:1000;
-    background:rgba(7,11,20,0.88);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid var(--border);
-    padding:14px 7%;
+    left:0;
+    width:100%;
+    z-index:999;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
+
+    padding:15px 7%;
+
+    background:rgba(5,8,17,.72);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid var(--border);
 }
 
 .logo{
     display:flex;
     align-items:center;
+    z-index:1001;
 }
 
 .logo img{
     width:58px;
     height:58px;
     object-fit:contain;
+    display:block;
+    border-radius:10px;
 }
+
+/* NAV */
 
 nav{
     display:flex;
     align-items:center;
-    gap:22px;
+    gap:25px;
 }
 
 nav a{
     color:#cbd5e1;
     font-size:14px;
-    transition:0.3s;
+    font-weight:500;
+    transition:.3s ease;
+    position:relative;
 }
 
-nav a:hover{
-    color:white;
+nav a:not(.nav-btn)::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-7px;
+    width:0;
+    height:2px;
+    background:var(--blue2);
+    transition:.3s ease;
+}
+
+nav a:not(.nav-btn):hover{
+    color:#fff;
+}
+
+nav a:not(.nav-btn):hover::after{
+    width:100%;
 }
 
 .nav-btn{
-    padding:10px 17px;
+    padding:10px 18px;
+    border-radius:8px;
     background:var(--blue);
-    color:white;
-    border-radius:7px;
+    color:#fff !important;
+    box-shadow:0 8px 25px rgba(79,124,255,.22);
 }
 
+.nav-btn:hover{
+    transform:translateY(-2px);
+    background:#628cff;
+}
+
+.menu-btn{
+    display:none;
+    font-size:27px;
+    cursor:pointer;
+    color:white;
+    background:none;
+    border:0;
+}
+
+/* HERO */
+
 .hero{
-    min-height:92vh;
+    min-height:100vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
-    padding:90px 7%;
+
+    padding:140px 7% 100px;
+
     position:relative;
     overflow:hidden;
+
     background:
-    radial-gradient(circle at 50% 20%,rgba(79,124,255,0.22),transparent 35%),
-    linear-gradient(180deg,#080d19,#070b14);
+    radial-gradient(circle at 50% 20%,rgba(79,124,255,.25),transparent 34%),
+    radial-gradient(circle at 10% 80%,rgba(85,214,255,.08),transparent 25%),
+    linear-gradient(180deg,#080d19,#050811);
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    background:rgba(79,124,255,.08);
+
+    filter:blur(90px);
+
+    top:-180px;
+    left:-150px;
+
+    animation:floatGlow 8s ease-in-out infinite alternate;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    border-radius:50%;
+
+    background:rgba(85,214,255,.06);
+
+    filter:blur(100px);
+
+    bottom:-200px;
+    right:-150px;
+
+    animation:floatGlow 10s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatGlow{
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(60px,40px);
+    }
 }
 
 .hero-content{
     max-width:900px;
     position:relative;
     z-index:2;
+    animation:heroEnter 1s ease;
+}
+
+@keyframes heroEnter{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .badge{
-    display:inline-block;
-    padding:8px 15px;
-    border:1px solid rgba(110,168,255,0.3);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:9px 17px;
+
+    border:1px solid rgba(110,168,255,.3);
     border-radius:50px;
-    color:#9fc2ff;
-    font-size:13px;
-    margin-bottom:25px;
-    background:rgba(79,124,255,0.08);
+
+    color:#a9c9ff;
+
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.8px;
+
+    margin-bottom:27px;
+
+    background:rgba(79,124,255,.08);
+
+    box-shadow:0 0 30px rgba(79,124,255,.08);
+}
+
+.badge::before{
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#62a0ff;
+    box-shadow:0 0 12px #62a0ff;
 }
 
 .hero h1{
-    font-size:70px;
-    line-height:1.05;
-    margin-bottom:20px;
-    letter-spacing:-2px;
+    font-size:clamp(45px,8vw,78px);
+    line-height:1.03;
+    margin-bottom:22px;
+    letter-spacing:-3px;
 }
 
 .hero h1 span{
     color:var(--blue2);
+    text-shadow:0 0 40px rgba(114,167,255,.2);
 }
 
 .hero h2{
-    font-size:25px;
-    color:#dbe5ff;
+    font-size:26px;
+    color:#dce7ff;
     margin-bottom:20px;
+    font-weight:600;
 }
 
 .hero p{
-    max-width:700px;
+    max-width:720px;
     margin:auto;
     color:var(--muted);
     font-size:17px;
 }
 
+/* BUTTONS */
+
 .buttons{
-    margin-top:35px;
+    margin-top:38px;
     display:flex;
     justify-content:center;
     gap:15px;
@@ -150,41 +313,53 @@ nav a:hover{
 }
 
 .btn{
-    display:inline-block;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+
     padding:14px 25px;
-    border-radius:8px;
-    font-weight:bold;
-    transition:0.3s;
+
+    border-radius:9px;
+
+    font-weight:700;
+    font-size:14px;
+
+    transition:.3s ease;
 }
 
 .btn-primary{
     background:var(--blue);
     color:white;
+    box-shadow:0 10px 35px rgba(79,124,255,.25);
 }
 
 .btn-primary:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 30px rgba(79,124,255,0.3);
+    transform:translateY(-4px);
+    box-shadow:0 15px 45px rgba(79,124,255,.4);
 }
 
 .btn-secondary{
     border:1px solid var(--border);
     color:white;
-    background:rgba(255,255,255,0.03);
+    background:rgba(255,255,255,.035);
 }
 
 .btn-secondary:hover{
-    background:rgba(255,255,255,0.08);
+    transform:translateY(-4px);
+    background:rgba(255,255,255,.08);
 }
 
+/* SECTION */
+
 .section{
-    padding:100px 7%;
+    padding:110px 7%;
+    position:relative;
 }
 
 .section-title{
     text-align:center;
-    max-width:700px;
-    margin:0 auto 55px;
+    max-width:720px;
+    margin:0 auto 60px;
 }
 
 .section-title span{
@@ -192,38 +367,79 @@ nav a:hover{
 }
 
 .section-title h2{
-    font-size:42px;
+    font-size:44px;
+    line-height:1.2;
     margin-bottom:15px;
 }
 
 .section-title p{
     color:var(--muted);
+    font-size:15px;
+}
+
+/* SERVICES */
+
+.services{
+    background:linear-gradient(180deg,#070c17,#080d18);
 }
 
 .cards{
     display:flex;
     justify-content:center;
+    align-items:stretch;
     gap:24px;
     flex-wrap:wrap;
+    max-width:1200px;
+    margin:auto;
 }
 
 .card{
-    background:linear-gradient(145deg,#111b30,#0d1526);
+    width:270px;
+
+    padding:34px 26px;
+
+    border-radius:18px;
+
+    background:linear-gradient(145deg,rgba(17,27,48,.95),rgba(10,18,34,.95));
+
     border:1px solid var(--border);
-    width:280px;
-    padding:32px 25px;
-    border-radius:16px;
-    transition:0.3s;
+
+    transition:.35s ease;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:2px;
+
+    background:linear-gradient(90deg,transparent,var(--blue2),transparent);
+
+    opacity:0;
+
+    transition:.35s ease;
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    border-color:rgba(110,168,255,0.4);
-    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    transform:translateY(-9px);
+    border-color:rgba(110,168,255,.35);
+    box-shadow:var(--shadow);
+}
+
+.card:hover::before{
+    opacity:1;
 }
 
 .card-icon{
-    font-size:34px;
+    font-size:36px;
     margin-bottom:18px;
 }
 
@@ -234,231 +450,352 @@ nav a:hover{
 
 .card p{
     color:var(--muted);
-    font-size:15px;
+    font-size:14px;
 }
 
-.services{
-    background:#080d18;
-}
+/* PORTFOLIO */
 
 .portfolio{
-    background:#0a1020;
+    background:#090f1d;
 }
 
 .project{
-    width:300px;
-    min-height:230px;
-    padding:28px;
-    border-radius:16px;
-    background:linear-gradient(145deg,#111b30,#0c1424);
+    width:310px;
+    min-height:250px;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    background:linear-gradient(145deg,#111c31,#0b1425);
+
     border:1px solid var(--border);
-    transition:0.3s;
+
+    transition:.35s ease;
 }
 
 .project:hover{
-    transform:translateY(-7px);
+    transform:translateY(-9px);
+    border-color:rgba(110,168,255,.35);
+    box-shadow:var(--shadow);
 }
 
 .project-tag{
     display:inline-block;
-    font-size:12px;
+
+    padding:6px 10px;
+
+    border-radius:20px;
+
+    background:rgba(79,124,255,.1);
+
     color:#9fc2ff;
-    margin-bottom:15px;
+
+    font-size:11px;
+    font-weight:700;
+
+    letter-spacing:.7px;
+
+    margin-bottom:18px;
 }
 
 .project h3{
-    font-size:22px;
-    margin-bottom:10px;
+    font-size:23px;
+    margin-bottom:12px;
 }
 
 .project p{
     color:var(--muted);
+    font-size:14px;
 }
 
 .project-btn{
     display:inline-block;
-    margin-top:20px;
+    margin-top:22px;
     color:#9fc2ff;
     font-size:14px;
+    font-weight:600;
+    transition:.3s;
 }
 
+.project-btn:hover{
+    color:#fff;
+    transform:translateX(5px);
+}
+
+/* ABOUT */
+
 .about{
-    background:#070b14;
+    background:#060a13;
 }
 
 .about-grid{
     max-width:1050px;
     margin:auto;
+
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:28px;
 }
 
 .about-box{
-    background:linear-gradient(145deg,#101a2d,#0c1424);
-    border:1px solid var(--border);
+    padding:38px;
+
     border-radius:18px;
-    padding:35px;
+
+    background:linear-gradient(145deg,#101a2d,#0b1425);
+
+    border:1px solid var(--border);
+
+    transition:.3s;
+}
+
+.about-box:hover{
+    transform:translateY(-5px);
+    border-color:rgba(110,168,255,.3);
 }
 
 .about-box h3{
-    font-size:24px;
+    font-size:25px;
     margin-bottom:15px;
 }
 
 .about-box p{
     color:var(--muted);
+    font-size:15px;
 }
 
+/* STATS */
+
 .stats{
-    background:#0a1020;
+    background:#080e1b;
 }
 
 .stat-container{
-    max-width:1000px;
+    max-width:1050px;
     margin:auto;
+
     display:flex;
+
     justify-content:space-around;
-    gap:25px;
+
+    gap:30px;
+
     flex-wrap:wrap;
+
     text-align:center;
 }
 
 .stat{
-    min-width:180px;
+    min-width:170px;
 }
 
 .stat h3{
-    font-size:40px;
+    font-size:43px;
     color:var(--blue2);
+    margin-bottom:5px;
 }
 
 .stat p{
     color:var(--muted);
+    font-size:14px;
 }
 
+/* WHY */
+
 .why{
-    background:#080d18;
+    background:#070c17;
 }
 
 .why-grid{
     max-width:1050px;
     margin:auto;
+
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
+
     gap:22px;
 }
 
 .why-item{
-    padding:28px;
+    padding:30px;
+
+    border-radius:17px;
+
+    background:#0d1729;
+
     border:1px solid var(--border);
-    border-radius:15px;
-    background:#0e1728;
+
+    transition:.3s;
+}
+
+.why-item:hover{
+    transform:translateY(-5px);
+    border-color:rgba(110,168,255,.3);
 }
 
 .why-item h3{
-    margin-bottom:8px;
+    margin-bottom:9px;
+    font-size:19px;
 }
 
 .why-item p{
     color:var(--muted);
+    font-size:14px;
 }
 
+/* PRODUCTS */
+
 .products{
-    background:#0a1020;
+    background:#090f1d;
 }
 
 .product-card{
     width:290px;
-    padding:30px;
-    border-radius:17px;
-    background:linear-gradient(145deg,#111b30,#0c1424);
+
+    padding:31px;
+
+    border-radius:18px;
+
+    background:linear-gradient(145deg,#111c31,#0c1425);
+
     border:1px solid var(--border);
+
+    transition:.35s;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow);
+    border-color:rgba(110,168,255,.3);
 }
 
 .product-card h3{
+    font-size:20px;
     margin-bottom:12px;
 }
 
 .product-card p{
     color:var(--muted);
+    font-size:14px;
 }
 
 .coming{
     display:inline-block;
-    margin-top:18px;
-    padding:6px 11px;
+
+    margin-top:20px;
+
+    padding:7px 12px;
+
     border-radius:20px;
-    background:rgba(79,124,255,0.12);
+
+    background:rgba(79,124,255,.12);
+
     color:#9fc2ff;
-    font-size:12px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.6px;
 }
 
+/* FOUNDER */
+
 .founder{
-    background:#070b14;
+    background:#060a13;
 }
 
 .founder-box{
     max-width:850px;
     margin:auto;
+
     text-align:center;
-    padding:50px 30px;
-    border-radius:20px;
-    background:linear-gradient(145deg,#111b30,#0c1424);
+
+    padding:55px 35px;
+
+    border-radius:22px;
+
+    background:
+    radial-gradient(circle at 50% 0%,rgba(79,124,255,.15),transparent 55%),
+    linear-gradient(145deg,#111c31,#0b1425);
+
     border:1px solid var(--border);
+
+    box-shadow:0 25px 70px rgba(0,0,0,.25);
 }
 
 .founder-box h3{
-    font-size:30px;
-    margin-bottom:8px;
+    font-size:32px;
+    margin-bottom:7px;
 }
 
 .founder-role{
     color:var(--blue2);
-    margin-bottom:20px;
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:22px;
 }
 
 .founder-box p{
     color:var(--muted);
     max-width:650px;
     margin:auto;
+    font-size:15px;
 }
+
+/* CONTACT */
 
 .contact{
     background:
-    radial-gradient(circle at 50% 0%,rgba(79,124,255,0.2),transparent 45%),
+    radial-gradient(circle at 50% 0%,rgba(79,124,255,.2),transparent 45%),
     #080d18;
+
     text-align:center;
 }
 
 .contact-box{
-    max-width:750px;
+    max-width:760px;
     margin:auto;
 }
 
-.contact-box p{
-    color:var(--muted);
-}
-
 .contact-info{
-    margin-top:25px;
+    margin:30px 0;
 }
 
 .contact-info p{
-    margin:8px;
+    margin:9px;
+    color:#aebbd0;
 }
 
+.contact-info a{
+    color:#9fc2ff;
+    transition:.3s;
+}
+
+.contact-info a:hover{
+    color:white;
+}
+
+/* FOOTER */
+
 footer{
-    background:#04070d;
+    background:#03060c;
+
     border-top:1px solid var(--border);
-    padding:35px 7%;
+
+    padding:40px 7%;
+
     text-align:center;
 }
 
 .footer-logo{
-    font-size:24px;
-    font-weight:bold;
-    letter-spacing:3px;
+    font-size:25px;
+    font-weight:800;
+    letter-spacing:4px;
     margin-bottom:8px;
 }
 
@@ -469,111 +806,233 @@ footer p{
 
 .footer-tagline{
     color:#9fc2ff !important;
-    margin-bottom:15px;
+    margin-bottom:16px;
 }
 
-@media(max-width:800px){
+/* RESPONSIVE */
+
+@media(max-width:850px){
 
     header{
-        flex-direction:column;
-        gap:10px;
+        padding:13px 6%;
+    }
+
+    .menu-btn{
+        display:block;
     }
 
     nav{
-        gap:10px;
-        flex-wrap:wrap;
-        justify-content:center;
+        position:absolute;
+
+        top:85px;
+        left:5%;
+        right:5%;
+
+        display:none;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        padding:20px;
+
+        background:rgba(8,13,25,.97);
+
+        border:1px solid var(--border);
+
+        border-radius:15px;
+
+        box-shadow:var(--shadow);
+    }
+
+    nav.active{
+        display:flex;
     }
 
     nav a{
-        font-size:12px;
+        padding:10px;
+        text-align:center;
+    }
+
+    .nav-btn{
+        margin-top:5px;
+    }
+
+    .hero{
+        padding-left:6%;
+        padding-right:6%;
     }
 
     .hero h1{
-        font-size:46px;
-    }
-
-    .hero h2{
-        font-size:21px;
-    }
-
-    .hero p{
-        font-size:15px;
+        letter-spacing:-2px;
     }
 
     .section{
-        padding:75px 6%;
+        padding:85px 6%;
     }
 
     .section-title h2{
-        font-size:34px;
+        font-size:36px;
     }
 
     .about-grid,
     .why-grid{
         grid-template-columns:1fr;
     }
+}
+
+@media(max-width:520px){
 
     .logo img{
         width:50px;
         height:50px;
     }
-}
-
-@media(max-width:480px){
 
     .hero{
-        min-height:85vh;
+        min-height:100vh;
+        padding-top:125px;
     }
 
     .hero h1{
-        font-size:39px;
+        font-size:40px;
     }
 
     .hero h2{
-        font-size:19px;
+        font-size:20px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .badge{
+        font-size:10px;
+        padding:8px 12px;
+    }
+
+    .section{
+        padding:75px 5%;
+    }
+
+    .section-title{
+        margin-bottom:42px;
+    }
+
+    .section-title h2{
+        font-size:32px;
     }
 
     .card,
     .project,
     .product-card{
         width:100%;
-        max-width:330px;
+        max-width:350px;
+    }
+
+    .about-box{
+        padding:28px;
+    }
+
+    .founder-box{
+        padding:40px 23px;
+    }
+
+    .founder-box h3{
+        font-size:27px;
+    }
+
+    .stat{
+        min-width:130px;
+    }
+
+    .stat h3{
+        font-size:35px;
     }
 }
 
+/* ANIMATION */
+
+@media(prefers-reduced-motion:no-preference){
+
+    .card,
+    .project,
+    .product-card,
+    .about-box,
+    .why-item{
+        animation:fadeUp .8s ease both;
+    }
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
 
 <div class="logo">
-<img src="nexora-logo.jpg" alt="NEXORA Logo">
+<img
+src="NEXORA_logo.jpg"
+alt="NEXORA Logo"
+loading="eager"
+>
 </div>
 
-<nav>
+<button
+class="menu-btn"
+onclick="toggleMenu()"
+aria-label="Open navigation menu"
+>
+☰
+</button>
+
+<nav id="navMenu">
+
 <a href="#home">Home</a>
 <a href="#services">Services</a>
 <a href="#portfolio">Portfolio</a>
 <a href="#about">About</a>
 <a href="#products">Products</a>
+<a href="#founder">Founder</a>
 <a href="#contact" class="nav-btn">Contact</a>
+
 </nav>
 
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero" id="home">
 
 <div class="hero-content">
 
-<div class="badge">DIGITAL-FIRST COMPANY • EST. 2026</div>
+<div class="badge">
+DIGITAL-FIRST COMPANY • EST. 2026
+</div>
 
-<h1>Welcome to <span>NEXORA</span></h1>
+<h1>
+Welcome to
+<span>NEXORA</span>
+</h1>
 
-<h2>Build. Create. Evolve.</h2>
+<h2>
+Build. Create. Evolve.
+</h2>
 
 <p>
 NEXORA is a digital-first company building modern
@@ -598,15 +1057,19 @@ Discover Our Vision
 </section>
 
 
+<!-- SERVICES -->
+
 <section class="section services" id="services">
 
 <div class="section-title">
 
-<h2>What <span>NEXORA</span> Does</h2>
+<h2>
+What <span>NEXORA</span> Does
+</h2>
 
 <p>
-We focus on digital services, technology, creative work
-and online business opportunities.
+We focus on digital services, technology,
+creative work and online business opportunities.
 </p>
 
 </div>
@@ -614,54 +1077,86 @@ and online business opportunities.
 <div class="cards">
 
 <div class="card">
+
 <div class="card-icon">🌐</div>
-<h3>Web Services</h3>
+
+<h3>
+Web Services
+</h3>
+
 <p>
 Modern and responsive websites for creators,
 personal brands and businesses.
 </p>
+
 </div>
 
+
 <div class="card">
+
 <div class="card-icon">💻</div>
-<h3>Digital Solutions</h3>
+
+<h3>
+Digital Solutions
+</h3>
+
 <p>
 Creative digital solutions designed to help
 ideas move from concept to reality.
 </p>
+
 </div>
 
+
 <div class="card">
+
 <div class="card-icon">🚀</div>
-<h3>Online Business</h3>
+
+<h3>
+Online Business
+</h3>
+
 <p>
 Building digital brands, projects and
 future online business opportunities.
 </p>
+
 </div>
 
+
 <div class="card">
+
 <div class="card-icon">🎨</div>
-<h3>Creative Projects</h3>
+
+<h3>
+Creative Projects
+</h3>
+
 <p>
 Developing creative concepts, digital content
 and innovative online experiences.
 </p>
+
 </div>
 
 </div>
 
 </section>
 
+
+<!-- PORTFOLIO -->
 
 <section class="section portfolio" id="portfolio">
 
 <div class="section-title">
 
-<h2>Our <span>Portfolio</span></h2>
+<h2>
+Our <span>Portfolio</span>
+</h2>
 
 <p>
-A growing collection of NEXORA projects and digital work.
+A growing collection of NEXORA projects
+and digital work.
 </p>
 
 </div>
@@ -669,33 +1164,68 @@ A growing collection of NEXORA projects and digital work.
 <div class="cards">
 
 <div class="project">
-<span class="project-tag">WEB PROJECT</span>
-<h3>Project One</h3>
+
+<span class="project-tag">
+WEB PROJECT
+</span>
+
+<h3>
+NEXORA Website
+</h3>
+
 <p>
-A modern digital project developed as part
-of the NEXORA portfolio.
+The official NEXORA digital headquarters,
+built as the foundation of the brand.
 </p>
-<a href="#" class="project-btn">Coming Soon →</a>
+
+<a href="#home" class="project-btn">
+View Project →
+</a>
+
 </div>
 
+
 <div class="project">
-<span class="project-tag">DIGITAL PROJECT</span>
-<h3>Project Two</h3>
+
+<span class="project-tag">
+DIGITAL PROJECT
+</span>
+
+<h3>
+Future Platform
+</h3>
+
 <p>
 A future digital solution created for
 the NEXORA ecosystem.
 </p>
-<a href="#" class="project-btn">Coming Soon →</a>
+
+<a href="#products" class="project-btn">
+Coming Soon →
+</a>
+
 </div>
 
+
 <div class="project">
-<span class="project-tag">CREATIVE PROJECT</span>
-<h3>Project Three</h3>
+
+<span class="project-tag">
+CREATIVE PROJECT
+</span>
+
+<h3>
+Creative Lab
+</h3>
+
 <p>
-More creative work and digital experiments
-will appear here.
+Future creative experiments, digital
+content and innovative projects.
 </p>
-<a href="#" class="project-btn">Coming Soon →</a>
+
+<a href="#contact" class="project-btn">
+Coming Soon →
+</a>
+
 </div>
 
 </div>
@@ -703,11 +1233,15 @@ will appear here.
 </section>
 
 
+<!-- ABOUT -->
+
 <section class="section about" id="about">
 
 <div class="section-title">
 
-<h2>About <span>NEXORA</span></h2>
+<h2>
+About <span>NEXORA</span>
+</h2>
 
 <p>
 A brand built with a long-term digital vision.
@@ -719,20 +1253,25 @@ A brand built with a long-term digital vision.
 
 <div class="about-box">
 
-<h3>Our Mission</h3>
+<h3>
+Our Mission
+</h3>
 
 <p>
 NEXORA aims to turn ideas into useful digital
 solutions, creative projects and future businesses.
-We believe technology should make it easier to
-build, create and grow.
+We believe technology should make it easier
+to build, create and grow.
 </p>
 
 </div>
 
+
 <div class="about-box">
 
-<h3>Our Vision</h3>
+<h3>
+Our Vision
+</h3>
 
 <p>
 Our vision is to build a modern digital brand
@@ -747,11 +1286,15 @@ products, e-commerce and new opportunities.
 </section>
 
 
+<!-- STATS -->
+
 <section class="section stats">
 
 <div class="section-title">
 
-<h2>Building <span>From Zero</span></h2>
+<h2>
+Building <span>From Zero</span>
+</h2>
 
 <p>
 Every great company starts with an idea.
@@ -763,23 +1306,54 @@ NEXORA is at the beginning of its journey.
 <div class="stat-container">
 
 <div class="stat">
-<h3>2026</h3>
-<p>Founded</p>
+
+<h3>
+2026
+</h3>
+
+<p>
+Founded
+</p>
+
 </div>
 
-<div class="stat">
-<h3>∞</h3>
-<p>Ideas Ahead</p>
-</div>
 
 <div class="stat">
-<h3>1</h3>
-<p>Big Vision</p>
+
+<h3>
+∞
+</h3>
+
+<p>
+Ideas Ahead
+</p>
+
 </div>
 
+
 <div class="stat">
-<h3>24/7</h3>
-<p>Building</p>
+
+<h3>
+1
+</h3>
+
+<p>
+Big Vision
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<h3>
+24/7
+</h3>
+
+<p>
+Building
+</p>
+
 </div>
 
 </div>
@@ -787,11 +1361,15 @@ NEXORA is at the beginning of its journey.
 </section>
 
 
+<!-- WHY NEXORA -->
+
 <section class="section why">
 
 <div class="section-title">
 
-<h2>Why <span>NEXORA?</span></h2>
+<h2>
+Why <span>NEXORA?</span>
+</h2>
 
 <p>
 The principles behind the brand.
@@ -802,32 +1380,58 @@ The principles behind the brand.
 <div class="why-grid">
 
 <div class="why-item">
-<h3>💡 Innovation</h3>
+
+<h3>
+💡 Innovation
+</h3>
+
 <p>
-We explore new ideas and modern digital possibilities.
+We explore new ideas and modern
+digital possibilities.
 </p>
+
 </div>
 
-<div class="why-item">
-<h3>⚡ Simplicity</h3>
-<p>
-We aim to make digital experiences simple and useful.
-</p>
-</div>
 
 <div class="why-item">
-<h3>🎯 Long-Term Vision</h3>
+
+<h3>
+⚡ Simplicity
+</h3>
+
 <p>
-NEXORA is being built with a focus on sustainable growth.
+We aim to make digital experiences
+simple and useful.
 </p>
+
 </div>
 
+
 <div class="why-item">
-<h3>🌎 Future Focused</h3>
+
+<h3>
+🎯 Long-Term Vision
+</h3>
+
 <p>
-We are building toward opportunities in the evolving
-digital economy.
+NEXORA is being built with a focus
+on sustainable growth.
 </p>
+
+</div>
+
+
+<div class="why-item">
+
+<h3>
+🌎 Future Focused
+</h3>
+
+<p>
+We are building toward opportunities
+in the evolving digital economy.
+</p>
+
 </div>
 
 </div>
@@ -835,11 +1439,15 @@ digital economy.
 </section>
 
 
+<!-- PRODUCTS -->
+
 <section class="section products" id="products">
 
 <div class="section-title">
 
-<h2>NEXORA <span>Products</span></h2>
+<h2>
+NEXORA <span>Products</span>
+</h2>
 
 <p>
 Our future product ecosystem starts here.
@@ -850,29 +1458,56 @@ Our future product ecosystem starts here.
 <div class="cards">
 
 <div class="product-card">
-<h3>✨ Digital Products</h3>
+
+<h3>
+✨ Digital Products
+</h3>
+
 <p>
 Useful digital resources, tools and products
 will be introduced here.
 </p>
-<span class="coming">COMING SOON</span>
+
+<span class="coming">
+COMING SOON
+</span>
+
 </div>
 
+
 <div class="product-card">
-<h3>🛍️ Physical Products</h3>
+
+<h3>
+🛍️ Physical Products
+</h3>
+
 <p>
 Future NEXORA collections and physical products
 will be available here.
 </p>
-<span class="coming">COMING SOON</span>
+
+<span class="coming">
+COMING SOON
+</span>
+
 </div>
 
+
 <div class="product-card">
-<h3>🔥 NEXORA Collection</h3>
+
+<h3>
+🔥 NEXORA Collection
+</h3>
+
 <p>
-A future collection built around the NEXORA brand.
+A future collection built around
+the NEXORA brand.
 </p>
-<span class="coming">COMING SOON</span>
+
+<span class="coming">
+COMING SOON
+</span>
+
 </div>
 
 </div>
@@ -880,27 +1515,33 @@ A future collection built around the NEXORA brand.
 </section>
 
 
-<section class="section founder">
+<!-- FOUNDER -->
+
+<section class="section founder" id="founder">
 
 <div class="founder-box">
 
-<h3>Oliver Knox</h3>
+<h3>
+Oliver Knox
+</h3>
 
 <div class="founder-role">
 Founder of NEXORA
 </div>
 
 <p>
-NEXORA was founded by Oliver Knox with the vision
-of creating a modern digital brand focused on
-technology, creativity, online business and future
-opportunities.
+NEXORA was founded by Oliver Knox with the
+vision of creating a modern digital brand
+focused on technology, creativity, online
+business and future opportunities.
 </p>
 
 </div>
 
 </section>
 
+
+<!-- CONTACT -->
 
 <section class="section contact" id="contact">
 
@@ -908,7 +1549,9 @@ opportunities.
 
 <div class="section-title">
 
-<h2>Let's Build <span>Something</span></h2>
+<h2>
+Let's Build <span>Something</span>
+</h2>
 
 <p>
 Have an idea, project or business opportunity?
@@ -919,13 +1562,30 @@ NEXORA is ready for the next challenge.
 
 <div class="contact-info">
 
-<p>Email: your@email.com</p>
+<p>
+📧 Email:
+<a href="mailto:deeoliver925@gmail.com">
+deeoliver925@gmail.com
+</a>
+</p>
 
-<p>Instagram: @yourusername</p>
+<p>
+📱 Instagram:
+<a
+href="https://www.instagram.com/theoliverknox.co/"
+target="_blank"
+rel="noopener noreferrer"
+>
+@theoliverknox.co
+</a>
+</p>
 
 </div>
 
-<a href="mailto:your@email.com" class="btn btn-primary">
+<a
+href="mailto:deeoliver925@gmail.com"
+class="btn btn-primary"
+>
 Contact NEXORA
 </a>
 
@@ -934,9 +1594,13 @@ Contact NEXORA
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
 
-<div class="footer-logo">NEXORA</div>
+<div class="footer-logo">
+NEXORA
+</div>
 
 <p class="footer-tagline">
 BUILD. CREATE. EVOLVE.
@@ -947,6 +1611,36 @@ BUILD. CREATE. EVOLVE.
 </p>
 
 </footer>
+
+
+<!-- MOBILE MENU -->
+
+<script>
+
+function toggleMenu(){
+
+    const nav =
+    document.getElementById("navMenu");
+
+    nav.classList.toggle("active");
+
+}
+
+document
+.querySelectorAll("#navMenu a")
+.forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        document
+        .getElementById("navMenu")
+        .classList.remove("active");
+
+    });
+
+});
+
+</script>
 
 </body>
 </html>
