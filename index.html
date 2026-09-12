@@ -6,182 +6,542 @@
 
 <title>NEXORA | Build. Create. Evolve.</title>
 
+<meta name="description" content="NEXORA is a digital-first company focused on technology, digital services, creative projects, online business and future e-commerce.">
+
 <style>
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  scroll-behavior:smooth;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#070b14;
+    --bg2:#0d1424;
+    --card:#101a2d;
+    --text:#f5f7ff;
+    --muted:#9aa7bd;
+    --blue:#4f7cff;
+    --blue2:#6ea8ff;
+    --border:rgba(255,255,255,0.08);
 }
 
 body{
-  font-family:Arial,sans-serif;
-  background:#f5f7fb;
-  color:#172033;
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
 }
 
 header{
-  background:#111827;
-  color:white;
-  padding:12px 7%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:100;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(7,11,20,0.88);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
+    padding:14px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
 }
 
 .logo img{
-  width:55px;
-  height:55px;
-  object-fit:contain;
-  display:block;
+    width:58px;
+    height:58px;
+    object-fit:contain;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:22px;
 }
 
 nav a{
-  color:white;
-  text-decoration:none;
-  margin-left:15px;
-  font-size:14px;
+    color:#cbd5e1;
+    font-size:14px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:white;
+}
+
+.nav-btn{
+    padding:10px 17px;
+    background:var(--blue);
+    color:white;
+    border-radius:7px;
 }
 
 .hero{
-  min-height:88vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:60px 7%;
-  background:linear-gradient(135deg,#eef2ff,#ffffff);
+    min-height:92vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:90px 7%;
+    position:relative;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at 50% 20%,rgba(79,124,255,0.22),transparent 35%),
+    linear-gradient(180deg,#080d19,#070b14);
+}
+
+.hero-content{
+    max-width:900px;
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border:1px solid rgba(110,168,255,0.3);
+    border-radius:50px;
+    color:#9fc2ff;
+    font-size:13px;
+    margin-bottom:25px;
+    background:rgba(79,124,255,0.08);
 }
 
 .hero h1{
-  font-size:48px;
-  margin-bottom:12px;
+    font-size:70px;
+    line-height:1.05;
+    margin-bottom:20px;
+    letter-spacing:-2px;
 }
 
 .hero h1 span{
-  color:#4f46e5;
+    color:var(--blue2);
 }
 
 .hero h2{
-  font-size:24px;
-  margin-bottom:15px;
+    font-size:25px;
+    color:#dbe5ff;
+    margin-bottom:20px;
 }
 
 .hero p{
-  max-width:650px;
-  margin:auto;
-  color:#667085;
-  line-height:1.7;
+    max-width:700px;
+    margin:auto;
+    color:var(--muted);
+    font-size:17px;
+}
+
+.buttons{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
 .btn{
-  display:inline-block;
-  margin-top:25px;
-  padding:14px 27px;
-  background:#4f46e5;
-  color:white;
-  text-decoration:none;
-  border-radius:8px;
-  font-weight:bold;
+    display:inline-block;
+    padding:14px 25px;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn-primary{
+    background:var(--blue);
+    color:white;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(79,124,255,0.3);
+}
+
+.btn-secondary{
+    border:1px solid var(--border);
+    color:white;
+    background:rgba(255,255,255,0.03);
+}
+
+.btn-secondary:hover{
+    background:rgba(255,255,255,0.08);
 }
 
 .section{
-  padding:70px 7%;
-  text-align:center;
+    padding:100px 7%;
 }
 
-.section h2{
-  font-size:34px;
-  margin-bottom:35px;
+.section-title{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 55px;
+}
+
+.section-title span{
+    color:var(--blue2);
+}
+
+.section-title h2{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:var(--muted);
 }
 
 .cards{
-  display:flex;
-  justify-content:center;
-  gap:22px;
-  flex-wrap:wrap;
+    display:flex;
+    justify-content:center;
+    gap:24px;
+    flex-wrap:wrap;
 }
 
 .card{
-  background:white;
-  width:280px;
-  padding:30px 22px;
-  border-radius:15px;
-  box-shadow:0 4px 18px #dfe3eb;
+    background:linear-gradient(145deg,#111b30,#0d1526);
+    border:1px solid var(--border);
+    width:280px;
+    padding:32px 25px;
+    border-radius:16px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(110,168,255,0.4);
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+}
+
+.card-icon{
+    font-size:34px;
+    margin-bottom:18px;
 }
 
 .card h3{
-  margin-bottom:12px;
+    font-size:21px;
+    margin-bottom:12px;
 }
 
 .card p{
-  color:#667085;
-  line-height:1.6;
+    color:var(--muted);
+    font-size:15px;
+}
+
+.services{
+    background:#080d18;
 }
 
 .portfolio{
-  background:#eef2ff;
+    background:#0a1020;
+}
+
+.project{
+    width:300px;
+    min-height:230px;
+    padding:28px;
+    border-radius:16px;
+    background:linear-gradient(145deg,#111b30,#0c1424);
+    border:1px solid var(--border);
+    transition:0.3s;
+}
+
+.project:hover{
+    transform:translateY(-7px);
+}
+
+.project-tag{
+    display:inline-block;
+    font-size:12px;
+    color:#9fc2ff;
+    margin-bottom:15px;
+}
+
+.project h3{
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.project p{
+    color:var(--muted);
+}
+
+.project-btn{
+    display:inline-block;
+    margin-top:20px;
+    color:#9fc2ff;
+    font-size:14px;
 }
 
 .about{
-  background:white;
+    background:#070b14;
 }
 
-.about p{
-  max-width:750px;
-  margin:auto;
-  color:#667085;
-  line-height:1.8;
+.about-grid{
+    max-width:1050px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.about-box{
+    background:linear-gradient(145deg,#101a2d,#0c1424);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:35px;
+}
+
+.about-box h3{
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.about-box p{
+    color:var(--muted);
+}
+
+.stats{
+    background:#0a1020;
+}
+
+.stat-container{
+    max-width:1000px;
+    margin:auto;
+    display:flex;
+    justify-content:space-around;
+    gap:25px;
+    flex-wrap:wrap;
+    text-align:center;
+}
+
+.stat{
+    min-width:180px;
+}
+
+.stat h3{
+    font-size:40px;
+    color:var(--blue2);
+}
+
+.stat p{
+    color:var(--muted);
+}
+
+.why{
+    background:#080d18;
+}
+
+.why-grid{
+    max-width:1050px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.why-item{
+    padding:28px;
+    border:1px solid var(--border);
+    border-radius:15px;
+    background:#0e1728;
+}
+
+.why-item h3{
+    margin-bottom:8px;
+}
+
+.why-item p{
+    color:var(--muted);
+}
+
+.products{
+    background:#0a1020;
+}
+
+.product-card{
+    width:290px;
+    padding:30px;
+    border-radius:17px;
+    background:linear-gradient(145deg,#111b30,#0c1424);
+    border:1px solid var(--border);
+}
+
+.product-card h3{
+    margin-bottom:12px;
+}
+
+.product-card p{
+    color:var(--muted);
+}
+
+.coming{
+    display:inline-block;
+    margin-top:18px;
+    padding:6px 11px;
+    border-radius:20px;
+    background:rgba(79,124,255,0.12);
+    color:#9fc2ff;
+    font-size:12px;
+}
+
+.founder{
+    background:#070b14;
+}
+
+.founder-box{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    padding:50px 30px;
+    border-radius:20px;
+    background:linear-gradient(145deg,#111b30,#0c1424);
+    border:1px solid var(--border);
+}
+
+.founder-box h3{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.founder-role{
+    color:var(--blue2);
+    margin-bottom:20px;
+}
+
+.founder-box p{
+    color:var(--muted);
+    max-width:650px;
+    margin:auto;
 }
 
 .contact{
-  background:#111827;
-  color:white;
+    background:
+    radial-gradient(circle at 50% 0%,rgba(79,124,255,0.2),transparent 45%),
+    #080d18;
+    text-align:center;
 }
 
-.contact p{
-  margin:10px 0;
+.contact-box{
+    max-width:750px;
+    margin:auto;
+}
+
+.contact-box p{
+    color:var(--muted);
+}
+
+.contact-info{
+    margin-top:25px;
+}
+
+.contact-info p{
+    margin:8px;
 }
 
 footer{
-  background:#080b12;
-  color:#aaa;
-  text-align:center;
-  padding:20px;
-}
-
-@media(max-width:700px){
-
-  header{
-    flex-direction:column;
-    gap:12px;
-  }
-
-  nav{
+    background:#04070d;
+    border-top:1px solid var(--border);
+    padding:35px 7%;
     text-align:center;
-  }
-
-  nav a{
-    margin:0 5px;
-    font-size:12px;
-  }
-
-  .hero h1{
-    font-size:38px;
-  }
-
-  .hero h2{
-    font-size:20px;
-  }
-
-  .logo img{
-    width:50px;
-    height:50px;
-  }
 }
+
+.footer-logo{
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:3px;
+    margin-bottom:8px;
+}
+
+footer p{
+    color:#718096;
+    font-size:13px;
+}
+
+.footer-tagline{
+    color:#9fc2ff !important;
+    margin-bottom:15px;
+}
+
+@media(max-width:800px){
+
+    header{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    nav{
+        gap:10px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    nav a{
+        font-size:12px;
+    }
+
+    .hero h1{
+        font-size:46px;
+    }
+
+    .hero h2{
+        font-size:21px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .section{
+        padding:75px 6%;
+    }
+
+    .section-title h2{
+        font-size:34px;
+    }
+
+    .about-grid,
+    .why-grid{
+        grid-template-columns:1fr;
+    }
+
+    .logo img{
+        width:50px;
+        height:50px;
+    }
+}
+
+@media(max-width:480px){
+
+    .hero{
+        min-height:85vh;
+    }
+
+    .hero h1{
+        font-size:39px;
+    }
+
+    .hero h2{
+        font-size:19px;
+    }
+
+    .card,
+    .project,
+    .product-card{
+        width:100%;
+        max-width:330px;
+    }
+}
+
 </style>
 </head>
 
@@ -190,179 +550,401 @@ footer{
 <header>
 
 <div class="logo">
-  <img src="nexora-logo.jpg" alt="NEXORA Logo">
+<img src="nexora-logo.jpg" alt="NEXORA Logo">
 </div>
 
 <nav>
 <a href="#home">Home</a>
 <a href="#services">Services</a>
 <a href="#portfolio">Portfolio</a>
-<a href="#products">Products</a>
 <a href="#about">About</a>
-<a href="#contact">Contact</a>
+<a href="#products">Products</a>
+<a href="#contact" class="nav-btn">Contact</a>
 </nav>
 
 </header>
 
+
 <section class="hero" id="home">
 
-<div>
+<div class="hero-content">
+
+<div class="badge">DIGITAL-FIRST COMPANY • EST. 2026</div>
 
 <h1>Welcome to <span>NEXORA</span></h1>
 
 <h2>Build. Create. Evolve.</h2>
 
 <p>
-NEXORA is a digital-first company focused on technology,
-digital services, creative projects, online business,
-and future e-commerce opportunities.
+NEXORA is a digital-first company building modern
+digital solutions, creative projects, online businesses
+and future-ready products.
 </p>
 
-<a href="#services" class="btn">Explore NEXORA</a>
+<div class="buttons">
+
+<a href="#services" class="btn btn-primary">
+Explore NEXORA
+</a>
+
+<a href="#about" class="btn btn-secondary">
+Discover Our Vision
+</a>
+
+</div>
 
 </div>
 
 </section>
 
-<section class="section" id="services">
 
-<h2>What NEXORA Does</h2>
+<section class="section services" id="services">
+
+<div class="section-title">
+
+<h2>What <span>NEXORA</span> Does</h2>
+
+<p>
+We focus on digital services, technology, creative work
+and online business opportunities.
+</p>
+
+</div>
 
 <div class="cards">
 
 <div class="card">
-<h3>🌐 Web Services</h3>
+<div class="card-icon">🌐</div>
+<h3>Web Services</h3>
 <p>
-Modern and simple websites for creators,
-personal brands and small businesses.
+Modern and responsive websites for creators,
+personal brands and businesses.
 </p>
 </div>
 
 <div class="card">
-<h3>💻 Digital Services</h3>
+<div class="card-icon">💻</div>
+<h3>Digital Solutions</h3>
 <p>
-Digital solutions, creative services and
-online support for individuals and businesses.
+Creative digital solutions designed to help
+ideas move from concept to reality.
 </p>
 </div>
 
 <div class="card">
-<h3>🚀 Online Business</h3>
+<div class="card-icon">🚀</div>
+<h3>Online Business</h3>
 <p>
-Building digital projects, brands and
-new opportunities for the online world.
+Building digital brands, projects and
+future online business opportunities.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">🎨</div>
+<h3>Creative Projects</h3>
+<p>
+Developing creative concepts, digital content
+and innovative online experiences.
 </p>
 </div>
 
 </div>
 
 </section>
+
 
 <section class="section portfolio" id="portfolio">
 
-<h2>NEXORA Portfolio</h2>
+<div class="section-title">
+
+<h2>Our <span>Portfolio</span></h2>
+
+<p>
+A growing collection of NEXORA projects and digital work.
+</p>
+
+</div>
 
 <div class="cards">
 
-<div class="card">
+<div class="project">
+<span class="project-tag">WEB PROJECT</span>
 <h3>Project One</h3>
 <p>
-A showcase of a completed NEXORA digital project.
+A modern digital project developed as part
+of the NEXORA portfolio.
 </p>
+<a href="#" class="project-btn">Coming Soon →</a>
 </div>
 
-<div class="card">
+<div class="project">
+<span class="project-tag">DIGITAL PROJECT</span>
 <h3>Project Two</h3>
 <p>
-A future website, freelance project or digital solution.
+A future digital solution created for
+the NEXORA ecosystem.
 </p>
+<a href="#" class="project-btn">Coming Soon →</a>
 </div>
 
-<div class="card">
+<div class="project">
+<span class="project-tag">CREATIVE PROJECT</span>
 <h3>Project Three</h3>
 <p>
-More NEXORA projects and creative work coming soon.
+More creative work and digital experiments
+will appear here.
 </p>
+<a href="#" class="project-btn">Coming Soon →</a>
 </div>
 
 </div>
 
 </section>
 
-<section class="section" id="products">
-
-<h2>NEXORA Products</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>🛍️ Products</h3>
-<p>
-Future NEXORA products and business offers
-will be available here.
-</p>
-</div>
-
-<div class="card">
-<h3>✨ Digital Products</h3>
-<p>
-Useful digital products, resources and
-online solutions coming soon.
-</p>
-</div>
-
-<div class="card">
-<h3>🔥 Future Collection</h3>
-<p>
-New products and collections will be
-introduced as NEXORA grows.
-</p>
-</div>
-
-</div>
-
-</section>
 
 <section class="section about" id="about">
 
-<h2>About NEXORA</h2>
+<div class="section-title">
+
+<h2>About <span>NEXORA</span></h2>
 
 <p>
-NEXORA is a digital-first company built to turn ideas
-into useful digital solutions and future businesses.
-Our focus includes technology, web services, freelancing,
-creative projects, digital products and e-commerce.
+A brand built with a long-term digital vision.
 </p>
 
-<br>
+</div>
+
+<div class="about-grid">
+
+<div class="about-box">
+
+<h3>Our Mission</h3>
 
 <p>
-NEXORA was founded by <strong>Oliver Knox</strong> with a
-long-term vision of building a modern digital brand
-that can grow across multiple industries.
+NEXORA aims to turn ideas into useful digital
+solutions, creative projects and future businesses.
+We believe technology should make it easier to
+build, create and grow.
 </p>
+
+</div>
+
+<div class="about-box">
+
+<h3>Our Vision</h3>
+
+<p>
+Our vision is to build a modern digital brand
+that can grow across technology, services,
+products, e-commerce and new opportunities.
+</p>
+
+</div>
+
+</div>
 
 </section>
 
+
+<section class="section stats">
+
+<div class="section-title">
+
+<h2>Building <span>From Zero</span></h2>
+
+<p>
+Every great company starts with an idea.
+NEXORA is at the beginning of its journey.
+</p>
+
+</div>
+
+<div class="stat-container">
+
+<div class="stat">
+<h3>2026</h3>
+<p>Founded</p>
+</div>
+
+<div class="stat">
+<h3>∞</h3>
+<p>Ideas Ahead</p>
+</div>
+
+<div class="stat">
+<h3>1</h3>
+<p>Big Vision</p>
+</div>
+
+<div class="stat">
+<h3>24/7</h3>
+<p>Building</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section why">
+
+<div class="section-title">
+
+<h2>Why <span>NEXORA?</span></h2>
+
+<p>
+The principles behind the brand.
+</p>
+
+</div>
+
+<div class="why-grid">
+
+<div class="why-item">
+<h3>💡 Innovation</h3>
+<p>
+We explore new ideas and modern digital possibilities.
+</p>
+</div>
+
+<div class="why-item">
+<h3>⚡ Simplicity</h3>
+<p>
+We aim to make digital experiences simple and useful.
+</p>
+</div>
+
+<div class="why-item">
+<h3>🎯 Long-Term Vision</h3>
+<p>
+NEXORA is being built with a focus on sustainable growth.
+</p>
+</div>
+
+<div class="why-item">
+<h3>🌎 Future Focused</h3>
+<p>
+We are building toward opportunities in the evolving
+digital economy.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section products" id="products">
+
+<div class="section-title">
+
+<h2>NEXORA <span>Products</span></h2>
+
+<p>
+Our future product ecosystem starts here.
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="product-card">
+<h3>✨ Digital Products</h3>
+<p>
+Useful digital resources, tools and products
+will be introduced here.
+</p>
+<span class="coming">COMING SOON</span>
+</div>
+
+<div class="product-card">
+<h3>🛍️ Physical Products</h3>
+<p>
+Future NEXORA collections and physical products
+will be available here.
+</p>
+<span class="coming">COMING SOON</span>
+</div>
+
+<div class="product-card">
+<h3>🔥 NEXORA Collection</h3>
+<p>
+A future collection built around the NEXORA brand.
+</p>
+<span class="coming">COMING SOON</span>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section founder">
+
+<div class="founder-box">
+
+<h3>Oliver Knox</h3>
+
+<div class="founder-role">
+Founder of NEXORA
+</div>
+
+<p>
+NEXORA was founded by Oliver Knox with the vision
+of creating a modern digital brand focused on
+technology, creativity, online business and future
+opportunities.
+</p>
+
+</div>
+
+</section>
+
+
 <section class="section contact" id="contact">
 
-<h2>Work With NEXORA</h2>
+<div class="contact-box">
 
-<p>Have an idea, project or business opportunity?</p>
+<div class="section-title">
+
+<h2>Let's Build <span>Something</span></h2>
+
+<p>
+Have an idea, project or business opportunity?
+NEXORA is ready for the next challenge.
+</p>
+
+</div>
+
+<div class="contact-info">
 
 <p>Email: your@email.com</p>
 
 <p>Instagram: @yourusername</p>
 
-<a href="mailto:your@email.com" class="btn">
+</div>
+
+<a href="mailto:your@email.com" class="btn btn-primary">
 Contact NEXORA
 </a>
 
+</div>
+
 </section>
+
 
 <footer>
 
+<div class="footer-logo">NEXORA</div>
+
+<p class="footer-tagline">
+BUILD. CREATE. EVOLVE.
+</p>
+
+<p>
 © 2026 NEXORA | Founded by Oliver Knox
+</p>
 
 </footer>
 
