@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://oliversofficial-glitch.github.io/My-website/sitemap.xml
